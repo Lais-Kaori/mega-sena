@@ -3,6 +3,7 @@
 ### Conteúdo
 * HTML, CSS e JavaScript;
 * Jogo simulador de Mega Sena;
-* Estilização própria.
+* Estilização própria;
+* Armazena jogos salvos em Local storage.
 
 [deploy website](https://mega-sena-laiskaori.netlify.app)

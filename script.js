@@ -65,7 +65,6 @@ function renderBoard() {
 
         ulNumbers.appendChild(liNumber);
     }
-
     divBoard.appendChild(ulNumbers);
 }
 
@@ -140,7 +139,6 @@ function renderSavedGames() {
             
             li.textContent = currentGame.join(" - ");
             
-
             ulSavedGames.appendChild(li);
             ulSavedGames.classList.add("saved-game");
         }
@@ -153,7 +151,6 @@ function addNumber(numberToAdd) {
         console.error("Invalid number", numberToAdd);
         return;
     }
-
     if (state.currentGame.length >=6) {
         console.error("The game is complete");
         return;
@@ -162,7 +159,6 @@ function addNumber(numberToAdd) {
         console.error("This number is already in the game", numberToAdd);
         return;
     }
-    
     state.currentGame.push(numberToAdd);
 }
 
@@ -224,5 +220,4 @@ function randomGame() {
     }
     render();
 }
-
 start();
