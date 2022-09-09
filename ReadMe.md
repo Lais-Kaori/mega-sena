@@ -5,4 +5,4 @@
 * Jogo simulador de Mega Sena;
 * Estilização própria.
 
-[deploy website](mega-sena-laiskaori.netlify.app)
+[deploy website](https://mega-sena-laiskaori.netlify.app)
