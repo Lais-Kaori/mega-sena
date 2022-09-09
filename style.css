@@ -1,0 +1,68 @@
+body {
+    padding: 1rem;
+    font-family: sans-serif;
+    background-color: rgb(218, 205, 231);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(81, 50, 113);
+}
+
+#title {
+    color: rgb(105, 45, 170);
+}
+
+button {
+    cursor: pointer;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgb(140, 106, 177);
+    border-radius: 5%;
+    color: rgb(255, 255, 255);
+}
+
+button:hover {
+    background-color: rgb(140, 106, 177); 
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+.numbers {
+    max-width: 700px;
+    border: 2px solid rgb(105, 45, 170);
+    border-radius: 1%;
+    padding: 1rem;
+    list-style-type: none;
+    font-family: monospace;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.number {
+    display: inline-block;
+    margin: 1rem;
+    border: 1px solid rgb(105, 45, 170);
+    border-radius: 100%;
+    width: 2rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.number:hover {
+    background-color: rgb(190, 161, 221); 
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+.selected-number {
+    background-color:rgb(154, 113, 198);
+}
+
+.saved-game {
+    padding: 1rem;
+    border: 1px solid rgb(105, 45, 170);
+    list-style-type: none;
+    line-height: 2rem;
+
+}
