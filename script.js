@@ -5,8 +5,23 @@ var savedGame = [];
 var state = { board: [], currentGame: [], savedGames: []};
 
 function start() {
+    readLocalStorage();
     createBoard();
     newGame();
+}
+
+function readLocalStorage() {
+    if (!window.localStorage) {
+        return;
+    }
+    var savedGamesFromStorage = window.localStorage.getItem("saved-games");
+    if (savedGamesFromStorage) {
+        state.savedGames = JSON.parse(savedGamesFromStorage);
+    }
+}
+
+function writeLocalStorage() {
+    window.localStorage.setItem("saved-games", JSON.stringify(state.savedGames));
 }
 
 function createBoard() {
@@ -20,8 +35,6 @@ function createBoard() {
 function newGame() {
     resetGame();
     render();
-
-    console.log("New game started");
 }
 
 function render() {
@@ -64,7 +77,6 @@ function handleNumberClick(event) {
     } else {
         addNumber(value);
     }
-    console.log(state.currentGame)
     render();
 }
 
@@ -125,7 +137,9 @@ function renderSavedGames() {
             var currentGame = state.savedGames[i];
 
             var li = document.createElement("li");
+            
             li.textContent = currentGame.join(" - ");
+            
 
             ulSavedGames.appendChild(li);
             ulSavedGames.classList.add("saved-game");
@@ -178,19 +192,17 @@ function saveGame() {
         console.error("Game is not complete");
         return;
     }
+    state.currentGame.sort((a, b) => a - b)
     state.savedGames.push(state.currentGame)
+    writeLocalStorage();
     newGame();
-    console.log(state.savedGames);
-}
-
-function gameCount() {
-    return state.savedGames.length;
 }
 
 function deleteAllGames(){
     state.savedGames = [];
     var divSavedGames = document.querySelector(".megasena-savedgames");
     divSavedGames.innerHTML = "";
+    writeLocalStorage();
     render();
 }
 
@@ -210,7 +222,6 @@ function randomGame() {
         var randomNumber = Math.ceil(Math.random() * 60);
         addNumber(randomNumber);  
     }
-    console.log(state.currentGame);
     render();
 }
 
